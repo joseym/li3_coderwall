@@ -2,11 +2,13 @@
 
 namespace li3_coderwall\extensions\adapter;
 
+use lithium\util\String;
+
 class Api extends \lithium\core\Object {
 
 	protected $_curl;
 
-	protected $_uri = "http://coderwall.com/";
+	protected $_uri = "http://coderwall.com/{:username}.json";
 
 	protected $_username;
 
@@ -59,7 +61,10 @@ class Api extends \lithium\core\Object {
 	}
 
 	public function url(){
-		return "{$this->_uri}{$this->_username}.json";
+		return String::insert(
+			$this->_uri,
+			array('username' => $this->_username)
+		);
 	}
 
 }

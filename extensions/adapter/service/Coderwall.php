@@ -27,4 +27,8 @@ class Coderwall extends \lithium\core\Object {
 		return $this->_username;
 	}
 
+	public function badges(){
+		return $this->request()->badges;
+	}
+
 }

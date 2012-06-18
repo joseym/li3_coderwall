@@ -11,6 +11,8 @@ class Coderwall extends \lithium\core\Adaptable {
 
 	protected static $_adapter;
 
+	protected static $_username;
+
 	/**
 	 * Path where to look for tracking adapters.
 	 *
@@ -27,6 +29,8 @@ class Coderwall extends \lithium\core\Adaptable {
 
 		$config += $defaults;
 
+		static::$_username = $config['username'];
+
 		if ($config && is_array($config)) {
 			return parent::config(array('default' => $config));
 		}
@@ -36,7 +40,11 @@ class Coderwall extends \lithium\core\Adaptable {
 	}
 
 	public static function get(){
-		return static::adapter('default');
+		return static::adapter('default')->request();
+	}
+
+	public static function user($user = null){
+		if($user !== null) 
 	}
 
 }
