@@ -44,7 +44,7 @@ class Coderwall extends \lithium\core\Adaptable {
 	}
 
 	public static function user($user = null){
-		if($user !== null) 
+		if($user !== null);
 	}
 
 }
